@@ -1,17 +1,37 @@
+import java.util.Locale;
+import java.util.Objects;
+import java.util.Scanner;
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        Scanner sc = new Scanner(System.in);
+        String yes = "y";
+        String userChoice;
+        do {
+            System.out.println("Nhập họ và tên sinh viên: ");
+            String name = sc.nextLine();
+            System.out.println("Nhập địa chỉ sinh viên: ");
+            String address = sc.nextLine();
+            System.out.println("Nhập tuổi sinh viên: ");
+            int age = Integer.parseInt(sc.nextLine());
+            switch (name + address + age) {
+                case "Duy" + "Chính Kinh" + "23":
+                    System.out.println("Thông tin của sinh viên Nguyễn Hoàng Duy:" + "\n" + "...");
+                    break;
+                case "Tú" + "Cầu Giấy" + "20":
+                    System.out.println("Thông tin của sinh viên Nguyễn Văn Tú:" + "\n" + "...");
+                    break;
+                default:
+                    System.out.println("Error");
+            }
+            System.out.println("Bạn có muốn tiếp tục: ");
+            System.out.println("y - Để tiếp tục nhập thông tin!");
+            System.out.println("n - Để dừng lại!");
+            userChoice = sc.nextLine();
         }
+        while (Objects.equals(userChoice, yes));
+        System.out.println("Thanks you!");;
     }
 }
